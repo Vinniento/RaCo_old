@@ -13,7 +13,8 @@
 
         <action
             android:id="@+id/action_LoginFragment_to_RegisterFragment"
-            app:destination="@id/RegisterFragment" />
+            app:destination="@id/RegisterFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_LoginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
