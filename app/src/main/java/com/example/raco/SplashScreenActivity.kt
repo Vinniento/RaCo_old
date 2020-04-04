@@ -3,8 +3,9 @@ package com.example.raco
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.raco.login.LoginActivity
 
-class SplashScreen : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,5 +15,5 @@ class SplashScreen : AppCompatActivity() {
 
 
 
-        startActivity(Intent(this, MainActivity::class.java))    }
+        startActivity(Intent(this, LoginActivity::class.java))    }
 }
