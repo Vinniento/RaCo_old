@@ -1,5 +1,6 @@
 package com.example.raco.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.raco.R
+import com.example.raco.navigationDrawerActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -25,6 +27,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        button_login.setOnClickListener{
+            startActivity(Intent(activity, navigationDrawerActivity::class.java))    }
+
 
         button_register.setOnClickListener {
             findNavController().navigate(R.id.action_LoginFragment_to_RegisterFragment)
