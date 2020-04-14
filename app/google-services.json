@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "126324361966",
+    "firebase_url": "https://raco-ed072.firebaseio.com",
+    "project_id": "raco-ed072",
+    "storage_bucket": "raco-ed072.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126324361966:android:d57cb2f1fbe7db3a0e01ff",
+        "android_client_info": {
+          "package_name": "com.example.raco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126324361966-ui0g8ckkjhmh5aqli3d6k2ej1tlfpe5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKTaX_c5Pkk-tmbuyLwS_l0m0hudo3NVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126324361966-ui0g8ckkjhmh5aqli3d6k2ej1tlfpe5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
