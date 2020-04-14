@@ -4,6 +4,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/raco_design"/>
+            android:src="@drawable/raco_design2"/>
     </item>
 </layer-list>
