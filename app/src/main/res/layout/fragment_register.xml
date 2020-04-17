@@ -80,9 +80,9 @@
         android:ems="12"
         android:hint="@string/retype_password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/choose_club"
-        app:layout_constraintEnd_toEndOf="@+id/choose_club"
-        app:layout_constraintStart_toStartOf="@+id/choose_club" />
+        app:layout_constraintBottom_toTopOf="@+id/spinner_clubs"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_clubs"
+        app:layout_constraintStart_toStartOf="@+id/spinner_clubs" />
 
     <Spinner
         android:id="@+id/spinner_clubs"
