@@ -10,11 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".navigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".login.LoginActivity"
-            android:theme="@style/AppTheme.ActionBar">
-
-
-        </activity>
+            android:theme="@style/AppTheme.ActionBar"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar.Launcher">
