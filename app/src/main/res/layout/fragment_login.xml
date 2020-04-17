@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@color/button_green"
-        android:text="New? Register here"
+        android:text="New? Register as Coach"
         app:layout_constraintBottom_toTopOf="@+id/button_forgotpassword"
         app:layout_constraintEnd_toEndOf="@+id/button_forgotpassword"
         app:layout_constraintHorizontal_bias="0.0"

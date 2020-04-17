@@ -41,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <EditText
         android:id="@+id/email"
@@ -75,11 +75,20 @@
         android:id="@+id/password_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="12"
         android:hint="@string/retype_password"
         android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/choose_club"
+        app:layout_constraintEnd_toEndOf="@+id/choose_club"
+        app:layout_constraintStart_toStartOf="@+id/choose_club" />
+
+    <Spinner
+        android:id="@+id/choose_club"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/button_register"
         app:layout_constraintEnd_toEndOf="@+id/button_register"
         app:layout_constraintStart_toStartOf="@+id/button_register" />
