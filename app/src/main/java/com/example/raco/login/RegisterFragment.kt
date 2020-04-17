@@ -1,14 +1,14 @@
 package com.example.raco.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.example.raco.R
+import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -19,6 +19,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_register, container, false)
     }
@@ -26,18 +27,22 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val spinner: Spinner = spinner_clubs //spinner_clubs.findViewById(R.id.spinner_clubs)
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        this.context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.clubs_array,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                // Apply the adapter to the spinner
+                spinner.adapter = adapter
+            }
+        }
     }
 
-    /*val spinner: Spinner = findViewById(R.id.spinner_clubs)
-    // Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter.createFromResource(
-        this,
-        R.array.clubs_array,
-        android.R.layout.simple_spinner_item
-    ).also { adapter ->
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Apply the adapter to the spinner
-        spinner.adapter = adapter
-    }*/
 }
