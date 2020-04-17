@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
 import com.example.raco.R
 
@@ -15,16 +16,28 @@ import com.example.raco.R
 class RegisterFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_register, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
 
-
+    val spinner: Spinner = findViewById(R.id.spinner_clubs)
+    // Create an ArrayAdapter using the string array and a default spinner layout
+    ArrayAdapter.createFromResource(
+        this,
+        R.array.clubs_array,
+        android.R.layout.simple_spinner_item
+    ).also { adapter ->
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Apply the adapter to the spinner
+        spinner.adapter = adapter
     }
 }

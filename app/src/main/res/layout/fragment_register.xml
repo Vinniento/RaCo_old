@@ -85,10 +85,11 @@
         app:layout_constraintStart_toStartOf="@+id/choose_club" />
 
     <Spinner
-        android:id="@+id/choose_club"
+        android:id="@+id/spinner_clubs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/button_register"
         app:layout_constraintEnd_toEndOf="@+id/button_register"
         app:layout_constraintStart_toStartOf="@+id/button_register" />
