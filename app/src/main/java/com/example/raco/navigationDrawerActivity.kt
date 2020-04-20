@@ -13,13 +13,15 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class navigationDrawerActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    // private lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
-    //private lateinit var user: FirebaseUser
+    private lateinit var user: FirebaseUser
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +47,11 @@ class navigationDrawerActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        /*  auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
           user = auth.currentUser!!
-          email_loggedIn.setText(user.displayName)
-          username_id.setText(user.email)*/
+        //TODO add userdetails
+        //Toast.makeText(this, if (user.email == "") "empty mail," else user.email.toString(), Toast.LENGTH_LONG).show()
+        // email_loggedIn.text = (user.email.toString())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
