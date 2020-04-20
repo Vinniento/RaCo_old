@@ -26,7 +26,6 @@ class RegisterFragment : Fragment() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
