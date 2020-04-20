@@ -29,7 +29,9 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val spinner: Spinner = spinner_clubs //spinner_clubs.findViewById(R.id.spinner_clubs)
+        val spinnerClubs: Spinner = spinner_clubs
+        val spinnerCountries: Spinner = spinner_countries
+        //spinner_clubs.findViewById(R.id.spinner_clubs)
         // Create an ArrayAdapter using the string array and a default spinner layout
         this.context?.let {
             ArrayAdapter.createFromResource(
@@ -40,7 +42,20 @@ class RegisterFragment : Fragment() {
                 // Specify the layout to use when the list of choices appears
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 // Apply the adapter to the spinner
-                spinner.adapter = adapter
+                spinnerClubs.adapter = adapter
+            }
+        }
+
+        this.context?.let {
+            ArrayAdapter.createFromResource(
+                it,
+                R.array.countries_array,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                // Apply the adapter to the spinner
+                spinnerCountries.adapter = adapter
             }
         }
     }

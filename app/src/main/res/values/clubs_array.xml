@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="clubs_array">
+        <item>Choose your Club…</item>
         <item>First Vienna FC 1894</item>
         <item>A XIII Auhof Center</item>
         <item>ASK Elektra</item>
