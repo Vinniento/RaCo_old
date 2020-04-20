@@ -20,10 +20,12 @@
         android:text="@string/create_your_account"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@+id/email_reg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596" />
 
     <Button
         android:id="@+id/button_register"
@@ -39,30 +41,48 @@
         android:text="@string/register_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.763" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:autofillHints="@string/email"
         android:ems="13"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/password_one"
         app:layout_constraintEnd_toEndOf="@+id/password_one"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password_one" />
+
+    <Spinner
+        android:id="@+id/spinner_countries"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_clubs"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_clubs"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/spinner_clubs" />
+
+    <Spinner
+        android:id="@+id/spinner_clubs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/button_register"
+        app:layout_constraintEnd_toEndOf="@+id/button_register"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button_register" />
 
     <EditText
         android:id="@+id/password_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:autofillHints="@string/password"
         android:ems="13"
         android:hint="@string/password"
@@ -76,7 +96,6 @@
         android:id="@+id/password_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:ems="13"
         android:hint="@string/retype_password"
@@ -85,22 +104,4 @@
         app:layout_constraintEnd_toEndOf="@+id/spinner_countries"
         app:layout_constraintStart_toStartOf="@+id/spinner_countries" />
 
-    <Spinner
-        android:id="@+id/spinner_clubs"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/button_register"
-        app:layout_constraintEnd_toEndOf="@+id/button_register"
-        app:layout_constraintStart_toStartOf="@+id/button_register" />
-
-    <Spinner
-        android:id="@+id/spinner_countries"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_clubs"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_clubs"
-        app:layout_constraintStart_toStartOf="@+id/spinner_clubs" />
 </androidx.constraintlayout.widget.ConstraintLayout>

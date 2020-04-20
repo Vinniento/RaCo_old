@@ -42,25 +42,25 @@
         android:background="@color/button_green"
         android:ems="13"
         android:text="@string/login"
-        app:layout_constraintBottom_toTopOf="@+id/button_register"
-        app:layout_constraintEnd_toEndOf="@+id/button_register"
+        app:layout_constraintBottom_toTopOf="@+id/button_go_to_register"
+        app:layout_constraintEnd_toEndOf="@+id/button_go_to_register"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button_register" />
+        app:layout_constraintStart_toStartOf="@+id/button_go_to_register" />
 
     <Button
-        android:id="@+id/button_register"
+        android:id="@+id/button_go_to_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@color/button_green"
         android:text="New? Register as Coach"
-        app:layout_constraintBottom_toTopOf="@+id/button_forgotpassword"
-        app:layout_constraintEnd_toEndOf="@+id/button_forgotpassword"
+        app:layout_constraintBottom_toTopOf="@+id/button_go_to_forgotpassword"
+        app:layout_constraintEnd_toEndOf="@+id/button_go_to_forgotpassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button_forgotpassword" />
+        app:layout_constraintStart_toStartOf="@+id/button_go_to_forgotpassword" />
 
     <Button
-        android:id="@+id/button_forgotpassword"
+        android:id="@+id/button_go_to_forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
