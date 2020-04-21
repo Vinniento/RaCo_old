@@ -1,7 +1,12 @@
 package com.example.raco
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.Menu
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -10,19 +15,21 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.raco.databinding.ActivityMainBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
-class navigationDrawerActivity : AppCompatActivity() {
+class NavigationDrawerActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var auth: FirebaseAuth
 
     private lateinit var user: FirebaseUser
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +58,7 @@ class navigationDrawerActivity : AppCompatActivity() {
           user = auth.currentUser!!
         //TODO add userdetails
         //Toast.makeText(this, if (user.email == "") "empty mail," else user.email.toString(), Toast.LENGTH_LONG).show()
-        // email_loggedIn.text = (user.email.toString())
+        //email_loggedIn.text = user.email.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

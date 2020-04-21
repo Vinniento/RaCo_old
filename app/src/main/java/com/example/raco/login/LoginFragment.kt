@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.raco.R
-import com.example.raco.navigationDrawerActivity
+import com.example.raco.NavigationDrawerActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -95,7 +95,7 @@ class LoginFragment : Fragment() {
 
     fun updateUI(user: FirebaseUser?) {
         //TODO abfragen ob coach oder spieler
-        startActivity(Intent(activity, navigationDrawerActivity::class.java))
+        startActivity(Intent(activity, NavigationDrawerActivity::class.java))
         this.activity?.finish() //richtig?
     }
 
