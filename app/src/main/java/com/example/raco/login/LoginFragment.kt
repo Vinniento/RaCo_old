@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.raco.R
 import com.example.raco.NavigationDrawerActivity
+import com.example.raco.R
+import com.example.raco.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -21,16 +23,27 @@ import kotlinx.android.synthetic.main.fragment_login.*
  */
 class LoginFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var user: FirebaseUser
+
+    private lateinit var binding: FragmentLoginBinding
+    //private val userDetails: UserDetailsDataClass = UserDetailsDataClass(user.email.toString(), user.displayName.toString())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
+        user = auth.currentUser!!
+
+
+        // userDetails.userMail = email.text.toString()
+
+
     }
 
     //TODO
     public override fun onStart() {
         super.onStart()
+        // TODO
         // Check if user is signed in (non-null) and update UI accordingly.
         // val currentUser = auth.currentUser
         //updateUI(currentUser)
@@ -40,15 +53,20 @@ class LoginFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        val view: View = binding.getRoot()
+        return view
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_login.setOnClickListener{
+        binding.apply {
+            email.text = email.text
+
+        }
+        binding.buttonLogin.setOnClickListener {
             if (!email.text.toString().isBlank() && !password.text.toString().isBlank())
                 login(email.text.toString(), password.text.toString())
             else
@@ -60,11 +78,11 @@ class LoginFragment : Fragment() {
         }
 
 
-        button_go_to_register.setOnClickListener {
+        binding.buttonGoToRegister.setOnClickListener {
             findNavController().navigate(R.id.action_LoginFragment_to_RegisterFragment)
         }
 
-        button_go_to_forgotpassword.setOnClickListener {
+        binding.buttonGoToForgotpassword.setOnClickListener {
             findNavController().navigate(R.id.action_LoginFragment_to_resetPasswordFragment)
         }
     }

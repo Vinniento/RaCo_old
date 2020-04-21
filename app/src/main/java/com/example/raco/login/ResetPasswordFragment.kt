@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.raco.R
+import com.example.raco.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_resetpassword.*
 
@@ -15,6 +16,9 @@ import kotlinx.android.synthetic.main.fragment_resetpassword.*
  */
 class ResetPasswordFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: ActivityMainBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
