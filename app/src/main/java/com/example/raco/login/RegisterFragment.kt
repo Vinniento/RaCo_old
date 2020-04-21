@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.raco.R
+import com.example.raco.UserDetailsDataClass
+import com.example.raco.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -20,6 +23,8 @@ import kotlinx.android.synthetic.main.fragment_register.*
  */
 class RegisterFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: FragmentRegisterBinding
+    private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +32,14 @@ class RegisterFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
+        val view: View = binding.root
+        return view
     }
 
     override fun onStart() {
@@ -42,10 +48,19 @@ class RegisterFragment : Fragment() {
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
+        binding.userDetails = userDetails
+        binding.apply {
+            //TODO überlegen ob pw auch?
+            userDetails?.userMail = emailReg.text.toString()
+            userDetails?.firstName = firstnameRegister.text.toString()
+            userDetails?.lastName = lastnameRegister.text.toString()
+        }
+        binding.buttonRegister.setOnClickListener {
+            createAccount(userDetails.userMail, this.password_one.text.toString())
+        }
         val spinnerClubs: Spinner = spinner_clubs
         val spinnerCountries: Spinner = spinner_countries
         //spinner_clubs.findViewById(R.id.spinner_clubs)
@@ -76,13 +91,11 @@ class RegisterFragment : Fragment() {
             }
         }
 
-        button_register.setOnClickListener {
-            createAccount(this.email_reg.text.toString(), this.password_one.text.toString())
-        }
+
     }
 
 
-    private fun createAccount (email: String, password: String) {
+    private fun createAccount(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -90,9 +103,9 @@ class RegisterFragment : Fragment() {
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     Toast.makeText(activity, "Authentication Successful!!", Toast.LENGTH_SHORT)
                         .show()
-
                     val user = auth.currentUser
                     user?.sendEmailVerification()
+                    //user.uid.updateProfile()
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.

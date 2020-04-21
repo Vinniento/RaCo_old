@@ -1,6 +1,7 @@
 package com.example.raco
 
 data class UserDetailsDataClass(
-    var userName: String = "",
-    var userMail: String = ""
+    var userMail: String = "",
+    var firstName: String = "",
+    var lastName: String = ""
 )

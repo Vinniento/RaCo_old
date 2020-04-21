@@ -25,9 +25,9 @@ class NavigationDrawerActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var user: FirebaseUser
     private lateinit var binding: NavHeaderNavigationDrawerBinding
-    private val userDetails: UserDetailsDataClass =
-        UserDetailsDataClass(user.email.toString(), user.displayName.toString())
 
+    //private val userDetails: UserDetailsDataClass = UserDetailsDataClass(user.email.toString(), user.displayName.toString())
+    private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +41,6 @@ class NavigationDrawerActivity : AppCompatActivity() {
         ).show()
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
-        //TODO add userdetails
-        // userDetails.userMail = user.email.toString()
-        //userDetails.userName = user.displayName.toString()
-        //email_loggedIn.text = user.email.toString()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)

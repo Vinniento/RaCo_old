@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.raco.NavigationDrawerActivity
 import com.example.raco.R
+import com.example.raco.UserDetailsDataClass
 import com.example.raco.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -24,9 +25,8 @@ import kotlinx.android.synthetic.main.fragment_login.*
 class LoginFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var user: FirebaseUser
-
     private lateinit var binding: FragmentLoginBinding
-    //private val userDetails: UserDetailsDataClass = UserDetailsDataClass(user.email.toString(), user.displayName.toString())
+    private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,36 +34,24 @@ class LoginFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
 
-
-        // userDetails.userMail = email.text.toString()
-
-
-    }
-
-    //TODO
-    public override fun onStart() {
-        super.onStart()
-        // TODO
-        // Check if user is signed in (non-null) and update UI accordingly.
-        // val currentUser = auth.currentUser
-        //updateUI(currentUser)
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        val view: View = binding.getRoot()
+        val view: View = binding.root
         return view
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.userDetails = userDetails
 
         binding.apply {
-            email.text = email.text
+            userDetails?.userMail = email.text.toString()
 
         }
         binding.buttonLogin.setOnClickListener {
