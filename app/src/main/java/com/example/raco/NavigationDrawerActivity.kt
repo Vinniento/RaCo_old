@@ -2,7 +2,6 @@ package com.example.raco
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -17,7 +16,6 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class NavigationDrawerActivity : AppCompatActivity() {
 
@@ -41,8 +39,7 @@ class NavigationDrawerActivity : AppCompatActivity() {
           ).show()*/
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
-        username_id.visibility = View.VISIBLE
-        username_id?.setText("nlkjkj")
+
         // email_loggedIn.setText("schauer");
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
