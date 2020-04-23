@@ -16,6 +16,9 @@ import com.example.raco.UserDetailsDataClass
 import com.example.raco.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
@@ -23,13 +26,16 @@ import kotlinx.android.synthetic.main.fragment_register.*
  */
 class RegisterFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
     private lateinit var binding: FragmentRegisterBinding
     private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
+
 
     }
 
@@ -45,7 +51,7 @@ class RegisterFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         //check if user is signed in and set appropriate UI
-        val currentUser = auth.currentUser
+        currentUser = auth.currentUser!!
         updateUI(currentUser)
     }
 
@@ -59,7 +65,8 @@ class RegisterFragment : Fragment() {
             userDetails?.lastName = lastnameRegister.text.toString()
         }
         binding.buttonRegister.setOnClickListener {
-            createAccount(userDetails.userMail, this.password_one.text.toString())
+            createAccount(email_reg.text.toString(), this.password_one.text.toString())
+            // updateUserInfo(currentUser)
         }
         val spinnerClubs: Spinner = spinner_clubs
         val spinnerCountries: Spinner = spinner_countries
@@ -96,6 +103,8 @@ class RegisterFragment : Fragment() {
 
 
     private fun createAccount(email: String, password: String) {
+        database = Firebase.database.reference
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -106,6 +115,7 @@ class RegisterFragment : Fragment() {
                     val user = auth.currentUser
                     user?.sendEmailVerification()
                     //user.uid.updateProfile()
+
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -120,6 +130,16 @@ class RegisterFragment : Fragment() {
 
                 // ...
             }
+    }
+
+    private fun updateUserInfo(user: FirebaseUser?) {
+
+        auth.updateCurrentUser(user!!)
+        val userInfo =
+            UserDetailsDataClass(firstName = userDetails.firstName, lastName = userDetails.lastName)
+        if (user != null) {
+            database.child("users").child(user.uid).setValue(userInfo)
+        }
     }
 
     private fun updateUI(user: FirebaseUser?) {

@@ -2,10 +2,9 @@ package com.example.raco
 
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class NavigationDrawerActivity : AppCompatActivity() {
 
@@ -31,17 +31,19 @@ class NavigationDrawerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_navigation_drawer)
-        binding.userDetails = userDetails
+        setContentView(R.layout.activity_navigation_drawer)
+        //binding.userDetails = userDetails
 
-        Toast.makeText(
-            this,
-            if (user.email == "") "empty mail," else user.email.toString(),
-            Toast.LENGTH_LONG
-        ).show()
+        /*  Toast.makeText(
+              this,
+              if (user.email == "") "empty mail," else user.email.toString(),
+              Toast.LENGTH_LONG
+          ).show()*/
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
-
+        username_id.visibility = View.VISIBLE
+        username_id?.setText("nlkjkj")
+        // email_loggedIn.setText("schauer");
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
