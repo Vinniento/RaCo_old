@@ -32,15 +32,15 @@ class NavigationDrawerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_navigation_drawer)
         //binding.userDetails = userDetails
 
-        /*  Toast.makeText(
-              this,
-              if (user.email == "") "empty mail," else user.email.toString(),
-              Toast.LENGTH_LONG
-          ).show()*/
+        /* Toast.makeText(
+               this,
+               if (user.email == "") "empty mail," else user.email.toString(),
+               Toast.LENGTH_LONG
+           ).show()*/
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
-
-        // email_loggedIn.setText("schauer");
+        //TODO hier wollen wir den email text setzen
+        //email_loggedIn.setText("schauer")
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

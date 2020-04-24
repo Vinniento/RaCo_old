@@ -1,9 +1,7 @@
 package com.example.raco.login
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +53,8 @@ class LoginFragment : Fragment() {
 
         }
         binding.buttonLogin.setOnClickListener {
+            email.setText("schauervincent@gmail.com");
+            password.setText("nlkjnlkj");
             if (!email.text.toString().isBlank() && !password.text.toString().isBlank())
                 login(email.text.toString(), password.text.toString())
             else
@@ -77,26 +77,28 @@ class LoginFragment : Fragment() {
 
 
     fun login(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        activity, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    // updateUI(null)
-                    // ...
-                }
+        updateUI(user)
 
-                // ...
-            }
+        /* auth.signInWithEmailAndPassword(email, password)
+             .addOnCompleteListener { task ->
+                 if (task.isSuccessful) {
+                     // Sign in success, update UI with the signed-in user's information
+                     Log.d(TAG, "signInWithEmail:success")
+                     val user = auth.currentUser
+                     updateUI(user)
+                 } else {
+                     // If sign in fails, display a message to the user.
+                     Log.w(TAG, "signInWithEmail:failure", task.exception)
+                     Toast.makeText(
+                         activity, "Authentication failed.",
+                         Toast.LENGTH_SHORT
+                     ).show()
+                     // updateUI(null)
+                     // ...
+                 }
+
+                 // ...
+             }*/
     }
 
     fun updateUI(user: FirebaseUser?) {
