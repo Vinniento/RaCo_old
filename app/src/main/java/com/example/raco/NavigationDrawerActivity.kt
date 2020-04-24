@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class NavigationDrawerActivity : AppCompatActivity() {
 
@@ -29,8 +31,8 @@ class NavigationDrawerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_navigation_drawer)
-        //binding.userDetails = userDetails
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_navigation_drawer)
+        binding.userDetails = userDetails
 
         /* Toast.makeText(
                this,
@@ -40,7 +42,14 @@ class NavigationDrawerActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
         //TODO hier wollen wir den email text setzen
-        //email_loggedIn.setText("schauer")
+        binding.apply {
+            invalidateAll()
+            binding.emailLoggedIn.setText("dfdf")
+            email_loggedIn?.text = binding.emailLoggedIn.text
+        }
+        //val emailTextLoggedIn = findViewById<EditText>(R.id.email_loggedIn)
+
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

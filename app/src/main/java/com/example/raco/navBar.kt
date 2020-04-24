@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class navBar : Fragment() {
 
@@ -34,6 +33,6 @@ class navBar : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        email_loggedIn.text = user.email.toString()
+        //  email_loggedIn.setText(user.email.toString())
     }
 }
