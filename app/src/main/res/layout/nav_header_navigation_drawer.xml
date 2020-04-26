@@ -39,14 +39,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:autofillHints="userName"
             android:inputType="text"
-            android:hint="hint" />
+            android:hint="Logged In Username here" />
 
         <EditText
             android:id="@+id/email_loggedIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:hint="hint"
+            android:hint="Mail address of User here"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:autofillHints=""
             android:inputType="textEmailAddress" />
     </LinearLayout>

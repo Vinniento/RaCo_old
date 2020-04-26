@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.raco.R
 
-class HomeFragment : Fragment() {
+class AddPlayersFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var addPlayersViewModel: AddPlayersViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        addPlayersViewModel =
+            ViewModelProviders.of(this).get(AddPlayersViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_add_players, container, false)
+        val textView: TextView = root.findViewById(R.id.text_add_players)
+        addPlayersViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

@@ -1,13 +1,13 @@
-package com.example.raco.ui.slideshow
+package com.example.raco.ui.gallery
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class ManageCalendarViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is slideshow Fragment"
+        value = "All the Calendar actions are planned here."
     }
     val text: LiveData<String> = _text
 }

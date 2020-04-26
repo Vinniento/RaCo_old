@@ -29,9 +29,9 @@
     <string name="nav_header_subtitle">Mail von Nutzer</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_add_players">Add Players</string>
+    <string name="menu_manage_calendar">Manage Calendar</string>
+    <string name="menu_trainings">Trainings</string>
 
     <string name="home_second">Home Second</string>
     <string name="create_your_account">Create your Account</string>
@@ -39,4 +39,5 @@
     <string name="first_name">First Name</string>
     <string name="new_register_as_coach">New? Register as Coach</string>
     <string name="i_forgot_my_password">I forgot my password!</string>
+    <string name="home_as_dashboard">Home used as Dashboard!</string>
 </resources>
