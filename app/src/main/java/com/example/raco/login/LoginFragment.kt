@@ -13,7 +13,6 @@ import com.example.raco.NavigationDrawerActivity
 import com.example.raco.R
 import com.example.raco.UserDetailsDataClass
 import com.example.raco.databinding.FragmentLoginBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -21,16 +20,16 @@ import kotlinx.android.synthetic.main.fragment_login.*
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class LoginFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
-    private lateinit var user: FirebaseUser
+    /* private lateinit var auth: FirebaseAuth
+     private lateinit var user: FirebaseUser*/
     private lateinit var binding: FragmentLoginBinding
     private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
-        user = auth.currentUser!!
+        // auth = FirebaseAuth.getInstance()
+        //user = auth.currentUser!!
 
     }
 
@@ -77,7 +76,10 @@ class LoginFragment : Fragment() {
 
 
     fun login(email: String, password: String) {
-        updateUI(user)
+        //für wenzl zeig zwecke hier
+        startActivity(Intent(activity, NavigationDrawerActivity::class.java))
+        this.activity?.finish() //richtig?
+        // updateUI(user)
 
         /* auth.signInWithEmailAndPassword(email, password)
              .addOnCompleteListener { task ->
