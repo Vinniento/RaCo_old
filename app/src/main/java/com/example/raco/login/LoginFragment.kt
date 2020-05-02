@@ -1,13 +1,13 @@
 package com.example.raco.login
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.raco.R
 import com.example.raco.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -28,7 +28,7 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-
+//TODO add conditional navigation if logged in or not
         //onclickListeners
         binding.buttonLogin.setOnClickListener {
             email.setText("schauervincent@gmail.com")
@@ -50,9 +50,19 @@ class LoginFragment : Fragment() {
         binding.buttonGoToForgotpassword.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
         }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, view!!.findNavController())
+                || super.onOptionsItemSelected(item)
+    }
 
 
     fun login(email: String, password: String) {

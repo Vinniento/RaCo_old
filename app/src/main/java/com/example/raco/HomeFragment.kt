@@ -33,6 +33,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentHomeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
         setHasOptionsMenu(true)
         return binding.root
     }

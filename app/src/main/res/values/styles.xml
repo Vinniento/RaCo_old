@@ -13,6 +13,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.ActionBar.Launcher" parent="AppTheme.ActionBar">
+        <item name="android:windowBackground">@drawable/bg_launcher</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -44,4 +44,19 @@
         android:id="@+id/homeFragment"
         android:name="com.example.raco.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/trainingsFragment"
+        android:name="com.example.raco.ui.slideshow.TrainingsFragment"
+        android:label="fragment_trainings"
+        tools:layout="@layout/fragment_trainings" />
+    <fragment
+        android:id="@+id/manageCalendarFragment"
+        android:name="com.example.raco.ui.gallery.ManageCalendarFragment"
+        android:label="fragment_manage_calendar"
+        tools:layout="@layout/fragment_manage_calendar" />
+    <fragment
+        android:id="@+id/addPlayersFragment"
+        android:name="com.example.raco.ui.home.AddPlayersFragment"
+        android:label="fragment_add_players"
+        tools:layout="@layout/fragment_add_players" />
 </navigation>
