@@ -24,14 +24,6 @@ class RegisterFragment : Fragment() {
     private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
     //private lateinit var database: DatabaseReference
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // Initialize Firebase Auth
-        //  auth = FirebaseAuth.getInstance()
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,13 +31,6 @@ class RegisterFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
         val view: View = binding.root
         return view
-    }
-
-    override fun onStart() {
-        super.onStart()
-        //check if user is signed in and set appropriate UI
-        //currentUser = auth.currentUser!!
-        //updateUI(currentUser)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,8 +43,8 @@ class RegisterFragment : Fragment() {
             userDetails?.lastName = lastnameRegister.text.toString()
         }
         binding.buttonRegister.setOnClickListener {
-            createAccount(email_reg.text.toString(), this.password_one.text.toString())
-            // updateUserInfo(currentUser)
+            createAccount()
+
         }
         val spinnerClubs: Spinner = spinner_clubs
         val spinnerCountries: Spinner = spinner_countries
@@ -94,46 +79,14 @@ class RegisterFragment : Fragment() {
 
     }
 
+    /**
+     *Creates and account
+     * @param user - data class object for login
+     */
+    private fun createAccount() {
 
-    private fun createAccount(email: String, password: String) {
-        /*    database = Firebase.database.reference
-
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(ContentValues.TAG, "createUserWithEmail:success")
-                        Toast.makeText(activity, "Authentication Successful!!", Toast.LENGTH_SHORT)
-                            .show()
-                        val user = auth.currentUser
-                        user?.sendEmailVerification()
-                        //user.uid.updateProfile()
-
-                        updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            activity,
-                            "Authentication failed. ${task.exception}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        updateUI(null)
-                    }
-
-                    // ...
-                }*/
     }
 
-    private fun updateUserInfo(user: FirebaseUser?) {
-
-        /*  auth.updateCurrentUser(user!!)
-          val userInfo =
-              UserDetailsDataClass(firstName = userDetails.firstName, lastName = userDetails.lastName)
-          if (user != null) {
-              database.child("users").child(user.uid).setValue(userInfo)
-          }*/
-    }
 
     private fun updateUI(user: FirebaseUser?) {
 

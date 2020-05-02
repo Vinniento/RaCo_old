@@ -16,51 +16,28 @@ import com.example.raco.databinding.FragmentResetpasswordBinding
 class ResetPasswordFragment : Fragment() {
     // private lateinit var auth: FirebaseAuth
     //private lateinit var user: FirebaseUser
-    private lateinit var binding: FragmentResetpasswordBinding
     private var userBinding: UserDetailsDataClass = UserDetailsDataClass()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //   auth = FirebaseAuth.getInstance()
-        /// user = auth.currentUser!!
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_resetpassword, container, false)
-        val view: View = binding.root
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.userDetails = userBinding
-
+        val binding =
+            DataBindingUtil.inflate<FragmentResetpasswordBinding>(
+                inflater,
+                R.layout.fragment_resetpassword,
+                container,
+                false
+            )
         binding.buttonResetPassword.setOnClickListener {
-            resetPassword(it)
+            resetPassword()
         }
-
+        return binding.root
     }
 
+    //TODO implement
+    private fun resetPassword() {
 
-    private fun resetPassword(view: View) {
-        binding.apply {
-            invalidateAll()
-            userBinding.userMail = emailReset.text.toString()
-        }
-        /*auth.sendPasswordResetEmail(email_reset.text.toString())
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful)
-                    Toast.makeText(activity, "Password reset", Toast.LENGTH_LONG).show()
-                else
-                    Toast.makeText(activity, "Password couldn't be reset", Toast.LENGTH_LONG)
-                        .show()
-
-            }*/
     }
 }
 
