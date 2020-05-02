@@ -3,7 +3,6 @@ package com.example.raco
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.raco.login.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -14,7 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         //perform login checks etc.
 
 
-        startActivity(Intent(this, LoginActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }

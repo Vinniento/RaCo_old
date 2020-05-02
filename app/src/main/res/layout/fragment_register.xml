@@ -2,11 +2,6 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="userDetails"
-            type="com.example.raco.UserDetailsDataClass" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -76,7 +71,7 @@
                     android:ems="13"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:text="@{userDetails.userMail}"
+                    android:text=""
                     app:layout_constraintBottom_toTopOf="@+id/password_one"
                     app:layout_constraintEnd_toEndOf="@+id/password_one"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -105,7 +100,7 @@
                     android:ems="13"
                     android:hint="@string/last_name"
                     android:inputType="textPersonName"
-                    android:text="@{userDetails.lastName}"
+                    android:text=""
                     app:layout_constraintBottom_toTopOf="@+id/email_reg"
                     app:layout_constraintEnd_toEndOf="@+id/email_reg"
                     app:layout_constraintStart_toStartOf="@+id/email_reg" />
@@ -134,7 +129,7 @@
                     android:ems="13"
                     android:hint="@string/first_name"
                     android:inputType="textPersonName"
-                    android:text="@{userDetails.firstName}"
+                    android:text=""
                     app:layout_constraintBottom_toTopOf="@+id/lastname_register"
                     app:layout_constraintEnd_toEndOf="@+id/lastname_register"
                     app:layout_constraintStart_toStartOf="@+id/lastname_register" />

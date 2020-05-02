@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.raco.R
-import com.example.raco.UserDetailsDataClass
 import com.example.raco.databinding.FragmentResetpasswordBinding
 
 /**
@@ -16,7 +15,6 @@ import com.example.raco.databinding.FragmentResetpasswordBinding
 class ResetPasswordFragment : Fragment() {
     // private lateinit var auth: FirebaseAuth
     //private lateinit var user: FirebaseUser
-    private var userBinding: UserDetailsDataClass = UserDetailsDataClass()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

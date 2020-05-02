@@ -9,9 +9,7 @@ import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.raco.R
-import com.example.raco.UserDetailsDataClass
 import com.example.raco.databinding.FragmentRegisterBinding
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
@@ -21,7 +19,6 @@ class RegisterFragment : Fragment() {
     // private lateinit var auth: FirebaseAuth
     //private lateinit var currentUser: FirebaseUser
     private lateinit var binding: FragmentRegisterBinding
-    private val userDetails: UserDetailsDataClass = UserDetailsDataClass()
     //private lateinit var database: DatabaseReference
 
     override fun onCreateView(
@@ -35,13 +32,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.userDetails = userDetails
-        binding.apply {
-            //TODO überlegen ob pw auch?
-            userDetails?.userMail = emailReg.text.toString()
-            userDetails?.firstName = firstnameRegister.text.toString()
-            userDetails?.lastName = lastnameRegister.text.toString()
-        }
+
         binding.buttonRegister.setOnClickListener {
             createAccount()
 
@@ -81,14 +72,14 @@ class RegisterFragment : Fragment() {
 
     /**
      *Creates and account
-     * @param user - data class object for login
+     * param - data class object for login
      */
     private fun createAccount() {
 
     }
 
 
-    private fun updateUI(user: FirebaseUser?) {
+    private fun updateUI() {
 
         //hier dann zur appropriate activity/fraggment weiterleiten
     }

@@ -44,11 +44,11 @@ class LoginFragment : Fragment() {
         }
 
         binding.buttonGoToRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_LoginFragment_to_RegisterFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
         binding.buttonGoToForgotpassword.setOnClickListener {
-            findNavController().navigate(R.id.action_LoginFragment_to_resetPasswordFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
         }
         return binding.root
     }
@@ -57,6 +57,7 @@ class LoginFragment : Fragment() {
 
     fun login(email: String, password: String) {
         //für wenzl zeig zwecke hier
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
 
         updateUI()
 
