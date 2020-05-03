@@ -3,6 +3,7 @@ package com.example.raco.login
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -51,6 +52,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
         }
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         return binding.root
     }
 

@@ -18,6 +18,7 @@ package com.example.raco
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -35,6 +36,7 @@ class HomeFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.show()
         return binding.root
     }
 
