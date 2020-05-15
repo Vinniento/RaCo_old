@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LoginFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/LoginFragment"
@@ -43,7 +43,14 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.raco.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_placeholder"
+            app:destination="@id/placeholder" />
+    </fragment>
     <fragment
         android:id="@+id/trainingsFragment"
         android:name="com.example.raco.ui.slideshow.TrainingsFragment"
@@ -59,4 +66,11 @@
         android:name="com.example.raco.ui.home.AddPlayersFragment"
         android:label="fragment_add_players"
         tools:layout="@layout/fragment_add_players" />
+
+    <fragment android:id="@+id/placeholder">
+        <action
+            android:id="@+id/action_placeholder_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
 </navigation>

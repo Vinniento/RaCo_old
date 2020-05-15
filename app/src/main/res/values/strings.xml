@@ -41,4 +41,5 @@
     <string name="i_forgot_my_password">I forgot my password!</string>
     <string name="home_as_dashboard">Home used as Dashboard!</string>
     <string name="About">About</string>
+    <string name="home">Home</string>
 </resources>
